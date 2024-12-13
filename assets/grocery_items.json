@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "category": "Fruits",
+        "name": "Apple",
+        "price": 2200.00,
+        "image": "images/apple.jpg"
+    },
+    {
+        "id": 2,
+        "category": "Fruits",
+        "name": "Banana",
+        "price": 800.00,
+        "image": "images/banana.jpg"
+    },
+    {
+        "id": 3,
+        "category": "Fruits",
+        "name": "Orange",
+        "price": 1380.00,
+        "image": "images/orange.jpg"
+    },
+    {
+        "id": 4,
+        "category": "Fruits",
+        "name": "Mango",
+        "price": 280.00,
+        "image": "images/mango.jpg"
+    },
+    {
+        "id": 5,
+        "category": "Fruits",
+        "name": "Grapes",
+        "price": 1920.00,
+        "image": "images/grapes.jpg"
+    },
+    {
+        "id": 6,
+        "category": "Fruits",
+        "name": "Pineapple",
+        "price": 500.00,
+        "image": "images/pineapple.jpg"
+    },
+    {
+        "id": 7,
+        "category": "Fruits",
+        "name": "Strawberry",
+        "price": 1250.00,
+        "image": "images/strawberry.jpg"
+    },
+    {
+        "id": 8,
+        "category": "Fruits",
+        "name": "Watermelon",
+        "price": 250.00,
+        "image": "images/watermelon.jpg"
+    },
+    {
+        "id": 9,
+        "category": "Fruits",
+        "name": "Papaya",
+        "price": 500.00,
+        "image": "images/papaya.jpg"
+    },
+    {
+        "id": 10,
+        "category": "Fruits",
+        "name": "Mangosteen",
+        "price": 2300.00,
+        "image": "images/mangosteen.jpg"
+    },
+    {
+        "id": 11,
+        "category": "Vegetables",
+        "name": "Carrot",
+        "price": 290.00,
+        "image": "images/carrot.jpg"
+    },
+    {
+        "id": 12,
+        "category": "Vegetables",
+        "name": "Broccoli",
+        "price": 3380.00,
+        "image": "images/broccoli.jpg"
+    },
+    {
+        "id": 13,
+        "category": "Vegetables",
+        "name": "Tomato",
+        "price": 820.00,
+        "image": "images/tomato.jpg"
+    },
+    {
+        "id": 14,
+        "category": "Vegetables",
+        "name": "Potato",
+        "price": 440.00,
+        "image": "images/potato.jpg"
+    },
+    {
+        "id": 15,
+        "category": "Vegetables",
+        "name": "Onion",
+        "price": 480.00,
+        "image": "images/onion.jpg"
+    },
+    {
+        "id": 16,
+        "category": "Vegetables",
+        "name": "Capsicum",
+        "price": 940.00,
+        "image": "images/capsicum.jpg"
+    },
+    {
+        "id": 17,
+        "category": "Vegetables",
+        "name": "Curry Leaves",
+        "price": 250.00,
+        "image": "images/curryleaves.jpg"
+    },
+    {
+        "id": 18,
+        "category": "Vegetables",
+        "name": "Cauliflower",
+        "price": 1160.00,
+        "image": "images/cauliflower.jpg"
+    },
+    {
+        "id": 19,
+        "category": "Vegetables",
+        "name": "Leeks",
+        "price": 520.00,
+        "image": "images/leeks.jpg"
+    },
+    {
+        "id": 20,
+        "category": "Vegetables",
+        "name": "Pumpkin",
+        "price": 440.00,
+        "image": "images/pumpkin.jpg"
+    }
+]

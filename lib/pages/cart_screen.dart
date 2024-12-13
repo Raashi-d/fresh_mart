@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
-// import 'checkout_screen.dart';
+ import 'checkout_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartScreen extends StatelessWidget {
@@ -20,8 +20,7 @@ class CartScreen extends StatelessWidget {
           ),
           child: IconButton(
             padding: EdgeInsets.zero,
-            constraints: BoxConstraints(),
-            onPressed: () {
+                        onPressed: () {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back, color: Colors.green, size: 20),
@@ -111,12 +110,12 @@ class CartScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: cartProvider.items.isNotEmpty
                       ? () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => CheckoutScreen(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>const CheckoutScreen(),
+                            ),
+                          );
                         }
                       : null,
                   child: const Text('Proceed to Checkout'),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/grocery_provider.dart';
+import 'package:fresh_mart/providers/cart_provider.dart';
 import 'package:fresh_mart/components/category_bar.dart';
+import 'package:fresh_mart/pages/cart_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -50,7 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white.withOpacity(0.8),
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const CartScreen()));
+                },
                 icon: const Icon(
                   Icons.shopping_cart,
                   color: Colors.green,
@@ -84,8 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-                height: 10.0),
+            const SizedBox(height: 10.0),
 
             // Custom Category Bar
             CategoryBar(
@@ -93,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onCategorySelected: _onCategorySelected,
             ),
 
-            const SizedBox(height: 10.0), 
+            const SizedBox(height: 10.0),
 
             // GridView Builder with Filter
             Expanded(
@@ -176,7 +180,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.all(8.0),
                                         child: ElevatedButton(
                                           onPressed: () {
-                                            // Handle "Add to Cart" action.
+                                            Provider.of<CartProvider>(context,
+                                                    listen: false)
+                                                .addToCart(item);
                                           },
                                           style: ElevatedButton.styleFrom(
                                             minimumSize:

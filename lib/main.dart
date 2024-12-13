@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/grocery_provider.dart';
+import 'providers/cart_provider.dart';
 import 'package:fresh_mart/components/loading_screen.dart';
 
 void main() {
@@ -8,7 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => GroceryProvider()),
-        // ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
       ],
       child: const MyApp(),
     ),

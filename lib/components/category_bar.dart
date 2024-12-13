@@ -6,10 +6,10 @@ class CategoryBar extends StatefulWidget {
   final String selectedCategory;
 
   const CategoryBar({
-    Key? key,
+    super.key,
     required this.onCategorySelected,
     required this.selectedCategory,
-  }) : super(key: key);
+  });
 
   @override
   _CategoryBarState createState() => _CategoryBarState();

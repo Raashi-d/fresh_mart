@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
- import 'checkout_screen.dart';
+import 'checkout_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartScreen extends StatelessWidget {
@@ -20,7 +20,7 @@ class CartScreen extends StatelessWidget {
           ),
           child: IconButton(
             padding: EdgeInsets.zero,
-                        onPressed: () {
+            onPressed: () {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back, color: Colors.green, size: 20),
@@ -73,6 +73,7 @@ class CartScreen extends StatelessWidget {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              // Decrease item quantity
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: () {
@@ -83,6 +84,7 @@ class CartScreen extends StatelessWidget {
                                 '$quantity',
                                 style: const TextStyle(fontSize: 18),
                               ),
+                              // Increase item quantity
                               IconButton(
                                 icon: const Icon(Icons.add),
                                 onPressed: () {
@@ -99,6 +101,7 @@ class CartScreen extends StatelessWidget {
                     },
                   ),
                 ),
+                 // Display total cart value
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
@@ -107,13 +110,14 @@ class CartScreen extends StatelessWidget {
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
+                // Proceed to checkout button
                 ElevatedButton(
                   onPressed: cartProvider.items.isNotEmpty
                       ? () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>const CheckoutScreen(),
+                              builder: (context) => const CheckoutScreen(),
                             ),
                           );
                         }

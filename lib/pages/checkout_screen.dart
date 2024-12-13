@@ -12,7 +12,11 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
+
+  // Form key for validation
   final _formKey = GlobalKey<FormState>();
+
+  // Text controllers for form fields
   final _nameController = TextEditingController();
   final _addressController = TextEditingController();
   final _phoneController = TextEditingController();
@@ -50,7 +54,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  // Cart Summary
+
+                  // Display cart summary
                   ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -65,17 +70,21 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       );
                     },
                   ),
+                  
+                  // Display total price
                   Text(
                     'Total: Rs.${cartProvider.getTotalPrice().toStringAsFixed(2)}',
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
 
-                  // Checkout Form
+                  // Customer details form with validation
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
+
+                        // Full Name
                         TextFormField(
                           controller: _nameController,
                           decoration:
@@ -87,6 +96,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             return null;
                           },
                         ),
+
+                        // Address
                         TextFormField(
                           controller: _addressController,
                           decoration:
@@ -98,6 +109,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             return null;
                           },
                         ),
+
+                        // Phone Number
                         TextFormField(
                           controller: _phoneController,
                           decoration:

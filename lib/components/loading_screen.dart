@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fresh_mart/pages/home_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+// Loading screen displayed at the start of the app
 class Loadingscreen extends StatefulWidget {
   const Loadingscreen({super.key});
 
@@ -16,6 +17,7 @@ class _LoadingscreenState extends State<Loadingscreen> {
     _startTimer();
   }
 
+  // Starts a timer that navigates to the home screen after 5 seconds
   void _startTimer() {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(

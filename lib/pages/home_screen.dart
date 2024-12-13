@@ -6,6 +6,7 @@ import 'package:fresh_mart/components/category_bar.dart';
 import 'package:fresh_mart/pages/cart_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Home screen of the application
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Load grocery items after the widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<GroceryProvider>(context, listen: false).loadGroceryItems();
     });

@@ -8,7 +8,10 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        // Provide GroceryProvider for managing grocery items
         ChangeNotifierProvider(create: (context) => GroceryProvider()),
+
+        // Provide CartProvider for managing cart state
         ChangeNotifierProvider(create: (context) => CartProvider()),
       ],
       child: const MyApp(),

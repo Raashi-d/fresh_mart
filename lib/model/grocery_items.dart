@@ -1,3 +1,4 @@
+// Model class for grocery items
 class GroceryItem {
   final int id;
   final String category;
@@ -13,6 +14,7 @@ class GroceryItem {
     required this.image,
   });
 
+  // Factory method to create a GroceryItem from JSON
   factory GroceryItem.fromJson(Map<String, dynamic> json) {
     return GroceryItem(
       id: json['id'],

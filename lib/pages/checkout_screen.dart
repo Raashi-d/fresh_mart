@@ -24,28 +24,37 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Container(
-          height: 30,
-          width: 30,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white.withOpacity(0.8),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0), // Set the height you want
+        child: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0), // Adjust the padding as needed
+            child: Container(
+              width: 40, // Set the width you want
+              height: 40, // Set the height you want
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.8),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.green,
+                  size: 20,
+                ),
+              ),
+            ),
           ),
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back, color: Colors.green, size: 20),
+          title: Text(
+            'Checkout',
+            style: GoogleFonts.anton(color: Colors.white, fontSize: 28),
           ),
+          centerTitle: true,
+          backgroundColor: Colors.green,
         ),
-        title: Text(
-          'Checkout',
-          style: GoogleFonts.anton(color: Colors.white, fontSize: 28),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: Consumer<CartProvider>(
         builder: (context, cartProvider, child) {
@@ -66,7 +75,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       return ListTile(
                         title: Text(item.name),
                         trailing: Text(
-                            '$quantity x Rs.${item.price.toStringAsFixed(2)}'),
+                            '$quantity x Rs.${item.price.toStringAsFixed(2)}',style: const TextStyle(fontSize: 15),),
                       );
                     },
                   ),
@@ -123,6 +132,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             return null;
                           },
                         ),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {

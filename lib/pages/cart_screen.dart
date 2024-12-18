@@ -10,28 +10,37 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Container(
-          height: 30,
-          width: 30,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white.withOpacity(0.8),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0), // Set the height you want
+        child: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0), // Adjust the padding as needed
+            child: Container(
+              width: 40, // Set the width you want
+              height: 40, // Set the height you want
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.8),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.green,
+                  size: 20,
+                ),
+              ),
+            ),
           ),
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back, color: Colors.green, size: 20),
+          title: Text(
+            'Your Cart',
+            style: GoogleFonts.anton(color: Colors.white, fontSize: 28),
           ),
+          centerTitle: true,
+          backgroundColor: Colors.green,
         ),
-        title: Text(
-          'Your Cart',
-          style: GoogleFonts.anton(color: Colors.white, fontSize: 28),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: Consumer<CartProvider>(
         builder: (context, cartProvider, child) {
@@ -101,29 +110,35 @@ class CartScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                 // Display total cart value
+                // Display total cart value
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Total: Rs.${cartProvider.getTotalPrice().toStringAsFixed(2)}',
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Total: Rs.${cartProvider.getTotalPrice().toStringAsFixed(2)}',
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      // Proceed to checkout button
+                      ElevatedButton(
+                        onPressed: cartProvider.items.isNotEmpty
+                            ? () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CheckoutScreen(),
+                                  ),
+                                );
+                              }
+                            : null,
+                        child: const Text('Proceed to Checkout'),
+                      ),
+                    ],
                   ),
                 ),
-                // Proceed to checkout button
-                ElevatedButton(
-                  onPressed: cartProvider.items.isNotEmpty
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CheckoutScreen(),
-                            ),
-                          );
-                        }
-                      : null,
-                  child: const Text('Proceed to Checkout'),
-                ),
+                
               ],
             ),
           );

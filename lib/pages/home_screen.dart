@@ -47,25 +47,63 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: Container(
-              height: 40,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.8),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const CartScreen()));
-                },
-                icon: const Icon(
-                  Icons.shopping_cart,
-                  color: Colors.green,
-                  size: 20,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CartScreen()));
+                    },
+                    icon: const Icon(
+                      Icons.shopping_cart,
+                      color: Colors.green,
+                      size: 20,
+                    ),
+                  ),
                 ),
-              ),
+
+                // Add the Cart item count
+                Consumer<CartProvider>(
+                  builder: (context, cartProvider, child) {
+                    return cartProvider.items.isNotEmpty
+                        ? Positioned(
+                            top: 0, 
+                            right: 0,
+                            child: Container(
+                              padding: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              constraints: const BoxConstraints(
+                                minWidth: 16,
+                                minHeight: 16,
+                              ),
+                              child: Text(
+                                '${cartProvider.items.length}', // Show item count
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 8,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          )
+                        : Container();
+                  },
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
       body: Padding(
